@@ -1,0 +1,97 @@
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+}
+
+.campo {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.campo input,
+.campo textarea {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.erro {
+  color: var(--danger);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.acoes {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.acoes button[type="submit"] {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.65rem 1.3rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.acoes button[type="submit"]:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.acoes button[type="submit"]:disabled {
+  background: var(--border);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.acoes button[type="button"] {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.65rem 1.3rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.acoes button[type="button"]:hover {
+  background: var(--bg);
+}

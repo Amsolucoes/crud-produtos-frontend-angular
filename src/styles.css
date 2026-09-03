@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #F5F3EE;
+  --surface: #FFFFFF;
+  --text: #1C1F1D;
+  --text-muted: #6B7268;
+  --primary: #2F5233;
+  --primary-hover: #24401F;
+  --danger: #A8412F;
+  --danger-hover: #8A3325;
+  --border: #DAD5C9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 15px;
+}
+
+h1, h2, h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  margin: 0;
+}

@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Produtos</h2>
+
+  <a routerLink="/novo" class="btn-novo">+ Novo Produto</a>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Estoque</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produto of produtos">
+        <td>{{ produto.id }}</td>
+        <td>{{ produto.nome }}</td>
+        <td>R$ {{ produto.preco }}</td>
+        <td>{{ produto.quantidade_estoque }}</td>
+        <td>
+          <a [routerLink]="['/editar', produto.id]">Editar</a>
+          <button (click)="remover(produto.id!)">Remover</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="vazio" *ngIf="produtos.length === 0">Nenhum produto cadastrado ainda. Clique em "+ Novo Produto" para criar o primeiro.</p>
+</div>
