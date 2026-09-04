@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Entrar</h2>
+
+  <form [formGroup]="form" (ngSubmit)="entrar()">
+    <div class="campo">
+      <label>E-mail</label>
+      <input type="email" formControlName="email" />
+    </div>
+
+    <div class="campo">
+      <label>Senha</label>
+      <input type="password" formControlName="password" />
+    </div>
+
+    <p class="erro" *ngIf="erro">{{ erro }}</p>
+
+    <div class="acoes">
+      <button type="submit" [disabled]="form.invalid">Entrar</button>
+    </div>
+  </form>
+
+  <p class="link-secundario">Não tem conta? <a routerLink="/registro">Cadastre-se</a></p>
+</div>

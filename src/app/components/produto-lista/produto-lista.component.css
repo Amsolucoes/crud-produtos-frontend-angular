@@ -111,3 +111,28 @@ td button:hover {
   color: var(--border);
   cursor: not-allowed;
 }
+
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.cabecalho h2 {
+  margin-bottom: 0;
+}
+
+.btn-sair {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.btn-sair:hover {
+  background: var(--bg);
+  color: var(--text);
+}

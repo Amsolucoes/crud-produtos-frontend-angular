@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { Produto } from '../../models/produto';
 import { ProdutoService } from '../../services/produto.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-produto-lista',
@@ -17,7 +18,11 @@ export class ProdutoListaComponent implements OnInit {
   ultimaPagina = 1;
   total = 0;
 
-  constructor(private produtoService: ProdutoService) {}
+  constructor(
+    private produtoService: ProdutoService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.carregarProdutos();
@@ -58,5 +63,10 @@ export class ProdutoListaComponent implements OnInit {
       next: () => this.carregarProdutos(),
       error: (erro) => console.error('Erro ao remover produto:', erro)
     });
+  }
+
+  sair(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

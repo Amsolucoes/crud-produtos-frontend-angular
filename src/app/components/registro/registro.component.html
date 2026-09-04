@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Criar conta</h2>
+
+  <form [formGroup]="form" (ngSubmit)="cadastrar()">
+    <div class="campo">
+      <label>Nome</label>
+      <input type="text" formControlName="name" />
+    </div>
+
+    <div class="campo">
+      <label>E-mail</label>
+      <input type="email" formControlName="email" />
+    </div>
+
+    <div class="campo">
+      <label>Senha</label>
+      <input type="password" formControlName="password" />
+    </div>
+
+    <div class="campo">
+      <label>Confirmar senha</label>
+      <input type="password" formControlName="password_confirmation" />
+    </div>
+
+    <p class="erro" *ngIf="erro">{{ erro }}</p>
+
+    <div class="acoes">
+      <button type="submit" [disabled]="form.invalid">Cadastrar</button>
+    </div>
+  </form>
+
+  <p class="link-secundario">Já tem conta? <a routerLink="/login">Entrar</a></p>
+</div>
