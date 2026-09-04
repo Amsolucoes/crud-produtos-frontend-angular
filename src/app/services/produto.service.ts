@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Produto } from '../models/produto';
+import { Pagina } from '../models/pagina';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class ProdutoService {
 
   constructor(private http: HttpClient) {}
 
-  listar(): Observable<Produto[]> {
-    return this.http.get<Produto[]>(this.apiUrl);
+  listar(pagina: number = 1): Observable<Pagina<Produto>> {
+    return this.http.get<Pagina<Produto>>(`${this.apiUrl}?page=${pagina}`);
   }
 
   buscarPorId(id: number): Observable<Produto> {

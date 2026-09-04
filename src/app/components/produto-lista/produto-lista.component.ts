@@ -13,6 +13,9 @@ import { ProdutoService } from '../../services/produto.service';
 })
 export class ProdutoListaComponent implements OnInit {
   produtos: Produto[] = [];
+  paginaAtual = 1;
+  ultimaPagina = 1;
+  total = 0;
 
   constructor(private produtoService: ProdutoService) {}
 
@@ -21,10 +24,29 @@ export class ProdutoListaComponent implements OnInit {
   }
 
   carregarProdutos(): void {
-    this.produtoService.listar().subscribe({
-      next: (dados) => (this.produtos = dados),
+    this.produtoService.listar(this.paginaAtual).subscribe({
+      next: (resposta) => {
+        this.produtos = resposta.data;
+        this.paginaAtual = resposta.current_page;
+        this.ultimaPagina = resposta.last_page;
+        this.total = resposta.total;
+      },
       error: (erro) => console.error('Erro ao carregar produtos:', erro)
     });
+  }
+
+  paginaAnterior(): void {
+    if (this.paginaAtual > 1) {
+      this.paginaAtual--;
+      this.carregarProdutos();
+    }
+  }
+
+  proximaPagina(): void {
+    if (this.paginaAtual < this.ultimaPagina) {
+      this.paginaAtual++;
+      this.carregarProdutos();
+    }
   }
 
   remover(id: number): void {

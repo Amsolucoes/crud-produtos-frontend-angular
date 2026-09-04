@@ -84,3 +84,30 @@ td button:hover {
   border: 1px dashed var(--border);
   margin-top: 1rem;
 }
+
+.paginacao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.paginacao button {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.paginacao button:hover:not(:disabled) {
+  background: var(--bg);
+}
+
+.paginacao button:disabled {
+  color: var(--border);
+  cursor: not-allowed;
+}

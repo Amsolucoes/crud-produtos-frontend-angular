@@ -28,4 +28,10 @@
   </table>
 
   <p class="vazio" *ngIf="produtos.length === 0">Nenhum produto cadastrado ainda. Clique em "+ Novo Produto" para criar o primeiro.</p>
+
+  <div class="paginacao" *ngIf="total > 0">
+    <button (click)="paginaAnterior()" [disabled]="paginaAtual === 1">← Anterior</button>
+    <span>Página {{ paginaAtual }} de {{ ultimaPagina }} ({{ total }} produtos)</span>
+    <button (click)="proximaPagina()" [disabled]="paginaAtual === ultimaPagina">Próxima →</button>
+</div>
 </div>
